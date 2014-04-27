@@ -1,10 +1,10 @@
 
 
-> 2014/4/27 
+at 2014/4/27 
 add the GLFW3WindowManager;
 add example 08curves2d;
 
-> 2014/4/27 
+at 2014/4/27 
 This project is forked and initialized from https://github.com/jonparrott/PhoenixCore 
 Thank you very much for the original author for sharing:-) thx
 
