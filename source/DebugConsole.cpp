@@ -19,9 +19,9 @@ DebugConsole::DebugConsole( RenderSystem& _r )
 //! Listens for Window Events ( To Open/Close the console ).
 void DebugConsole::onWindowEvent( const WindowEvent& e )
 {
-	switch( e.type ){
+	switch( e.eType ){
 		case WET_KEY:
-			if( e.bool_data == true && e.int_data == PHK_BACKTICK ){
+			if( e.bool_data == true && e.int_data == Key_BACKTICK ){
 				enabled = !enabled;
 			}
 			break;

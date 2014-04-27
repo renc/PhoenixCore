@@ -38,7 +38,7 @@ void EventReceiver::resetArrays( const bool all ){
 ////////////////////////////////////////////////////////////////////////////////
 void EventReceiver::onWindowEvent( const WindowEvent& e )
 {
-	switch( e.type ){
+	switch( e.eType ){
 
 		case WET_UPDATE:
 			resetArrays();
@@ -53,7 +53,7 @@ void EventReceiver::onWindowEvent( const WindowEvent& e )
 						keys[e.int_data]=true;
 
 						//backspace for keyboard strings.
-						if( e.int_data == PHK_BACKSPACE ){
+						if( e.int_data == Key_BACKSPACE ){
 							keyboardstring = keyboardstring.substr(0, keyboardstring.length() - 1);
 						}
 

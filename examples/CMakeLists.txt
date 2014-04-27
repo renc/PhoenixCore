@@ -44,3 +44,8 @@ if( BOX2D )
     add_executable( Box2d box2d.cpp )
     target_link_libraries( Box2d PhoenixCore ${LIBRARIES} ${BOX2D_LIBRARY} )
 endif()
+
+
+add_executable( 08curves2d 08curves2dmain.cpp )
+target_link_libraries( 08curves2d PhoenixCore ${LIBRARIES} )
+

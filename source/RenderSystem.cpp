@@ -92,7 +92,11 @@ void RenderSystem::initialize( const Vector2d& _sz , bool _fs, bool _resize, boo
     // Orthogonal projection.
     glMatrixMode(GL_PROJECTION); 
     glLoadIdentity();
+    // cjren, (0, 0) up-left.
     glOrtho(0.0f, _sz.getX(), _sz.getY(), 0.0f, 1000.0f, -1000.0f);
+	// cjren, when i try to make the down-left as (0, 0), the shape drawing is ok, but the font draw is up-side-down. 
+    //glOrtho(0.0f, _sz.getX(), 0.0f, _sz.getY(), 1000.0f, -1000.0f);	 // cjren: swap the y (up down).
+	//glOrtho(0.0f, _sz.getX(), 0.0f, _sz.getY(), -1000.0f, 1000.0f);	 // cjren: both are ok.
 
     // load up identity for the modelview matrix.
     glMatrixMode(GL_MODELVIEW);
@@ -208,13 +212,13 @@ bool RenderSystem::run()
 
 void RenderSystem::onWindowEvent( const WindowEvent& e )
 {
-	switch( e.type )
+	switch( e.eType )
 	{
 	case WET_CLOSE:
 		_quit = true;
 		break;
 	case WET_KEY:
-		if( e.bool_data == true && e.int_data == PHK_ESC ){
+		if( e.bool_data == true && e.int_data == Key_ESC ){
 			_quit = true;
 		}
 		break;

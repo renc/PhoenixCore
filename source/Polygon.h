@@ -256,7 +256,13 @@ namespace phoenix
 
     }; //Polygon
 
-} //namespace phoenix
+
+	class Polyline: public Polygon
+	{
+	}; 
+	
+	
+	} //namespace phoenix
 
 #include "Rectangle.h"
 

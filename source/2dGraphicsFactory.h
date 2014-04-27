@@ -93,6 +93,7 @@ public:
         Simply draws a polygon with the given depth and color. This is a geometry factory.
     */
     BatchGeometryPtr drawPolygon (const Polygon& _p, const Color& _a = Color(255,255,255));
+	BatchGeometryPtr drawPolyline(const Polyline&_p, const Color &_a = Color(255, 255, 255));
 
     //! Draws a textured polygon.
     /*!

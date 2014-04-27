@@ -50,6 +50,14 @@ BatchGeometryPtr GraphicsFactory2d::drawPolygon (const Polygon& _p, const Color&
     return polygeom;
 }
 
+BatchGeometryPtr GraphicsFactory2d::drawPolyline (const Polyline& _p, const Color& _c)
+{
+    // just use the BatchGeometry's factory
+	BatchGeometryPtr polygeom = new BatchGeometry( renderer, _p, getTexture(), getGroup(), getDepth());
+	polygeom->setImmediate( true );
+	polygeom->colorize( _c );
+    return polygeom;
+}
 ////////////////////////////////////////////////////////////////////////////////
 //Draws a polygon
 ////////////////////////////////////////////////////////////////////////////////

@@ -86,7 +86,12 @@ public:
         fromPolygon( _poly );
 		_r.add( this );
 	}
-
+	BatchGeometry( BatchRenderer& _r, const Polyline& _poly, TexturePtr _t = TexturePtr(), signed int _g = 0, float _d = 0.0f )
+        : Droppable(), renderer(_r), primitivetype( GL_LINES ), textureid( _t ? _t->getTextureId() : 0 ), texture(_t), groupid(_g), depth(_d), enabled(true), vertices(), immediate(false), clip(false)
+	{
+        fromPolyline( _poly );
+		_r.add( this );
+	}
 	/*!
 		Does nothing.
 		\sa drop()
@@ -407,6 +412,22 @@ public:
                 vertices.push_back( rhs.getPosition() + rhs.getVertex(i) );
                 vertices.push_back( rhs.getPosition() );
 			}
+		}
+	}
+	inline void fromPolyline ( const Polyline& rhs )
+	{
+		setPrimitiveType( GL_LINES ); 
+		update();
+		vertices.clear();
+		//simple polygon to triangle expansion.
+		if( rhs.getVertexCount() >= 2 )
+		{
+			for( unsigned int i = 0; i < rhs.getVertexCount() - 1; ++i )
+			{
+				vertices.push_back( rhs.getVertex(i) );
+                vertices.push_back( rhs.getVertex(i + 1) );
+			}
+			translate( rhs.getPosition() );
 		}
 	}
 

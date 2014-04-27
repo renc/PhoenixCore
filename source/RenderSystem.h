@@ -265,6 +265,9 @@ namespace phoenix
         {
             return factory.drawRay( _o, _r, _a, _b );
         }
+		
+		inline BatchGeometryPtr drawPolyline(const Polyline &_p, const Color &_c = Color(255, 0, 0)) 
+		{ return factory.drawPolyline(_p, _c); } 
 
 	    //! Delegates to GraphicsFactory2d::drawRectangle()
         inline BatchGeometryPtr drawRectangle( const Rectangle& _r = Rectangle(0,0,0,0), const Color& _a = Color(255,255,255), const Color& _b = Color(255,255,255), const Color& _c = Color(255,255,255), const Color& _d = Color(255,255,255) )
