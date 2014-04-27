@@ -1,0 +1,11 @@
+
+2014/1/6 
+install the boost (C:\local\boost_1_55_0) and glfw3, 
+
+update the CMakeList.txt to find boost and glfw3, and like the opengl3 on Windows.
+
+add glfw3 support at config.h file.
+
+add GLFW3WindowManager.h/cpp, update the RenderSystem.cpp to use the new GLFW3WindowManager.  
+
+
